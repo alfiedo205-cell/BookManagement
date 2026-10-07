@@ -1,0 +1,44 @@
+@model BookManagement.Models.Book
+
+<h1>Thêm sách</h1>
+
+<form method="post" action="/Book/Create">
+
+    <div>
+        <label>Tên sách:</label>
+        <input type="text" name="Name" value="@Model?.Name" />
+
+        <span style="color:red">
+            @Html.ValidationMessageFor(x => x.Name)
+        </span>
+    </div>
+
+    <br />
+
+    <div>
+        <label>Giá:</label>
+        <input type="number" name="Price" value="@Model?.Price" />
+
+        <span style="color:red">
+            @Html.ValidationMessageFor(x => x.Price)
+        </span>
+    </div>
+
+    <br />
+
+    <div>
+        <label>Mô tả:</label>
+        <textarea name="Description">@Model?.Description</textarea>
+    </div>
+
+    <br />
+
+    <button type="submit">
+        Thêm sách
+    </button>
+
+</form>
+
+<br />
+
+<a href="/Book">Quay lại</a>

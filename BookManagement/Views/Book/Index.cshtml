@@ -1,0 +1,35 @@
+@model List<BookManagement.Models.Book>
+
+<h1>Danh sách sách</h1>
+
+<a href="/Book/Create">Thêm sách</a>
+
+<br />
+<br />
+
+<table border="1" cellpadding="10">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Tên sách</th>
+            <th>Giá</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var book in Model)
+        {
+            <tr>
+                <td>@book.Id</td>
+                <td>@book.Name</td>
+                <td>@book.Price.ToString("N0") VNĐ</td>
+                <td>
+                    <a href="/Book/Detail/@book.Id">
+                        Xem chi tiết
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
